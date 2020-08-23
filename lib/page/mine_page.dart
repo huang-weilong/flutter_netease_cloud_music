@@ -22,27 +22,27 @@ class _MinePageState extends State<MinePage> {
             scrollDirection: Axis.horizontal,
             children: [
               _BuildMyMusicCard(
-                backgroundPath: 'assets/images/public/avatar.jpg',
+                backgroundPath: 'assets/images/cover/cover1.png',
                 iconPath: 'assets/images/public/like.png',
                 title: '我喜欢的音乐',
                 bottomIcon: 'assets/images/public/play2.png',
                 bottomText: '心动模式',
               ),
               _BuildMyMusicCard(
-                backgroundPath: 'assets/images/public/avatar.jpg',
+                backgroundPath: 'assets/images/cover/cover2.png',
                 iconPath: 'assets/images/public/radio_station.png',
                 title: '私人FM',
                 bottomText: '听点新鲜的',
               ),
               _BuildMyMusicCard(
                 topText: '推荐',
-                iconPath: 'assets/images/public/radio_station.png',
-                title: '私人FM',
+                iconPath: 'assets/images/public/wave.png',
+                title: '推歌精选',
                 bottomText: '听点新鲜的',
               ),
               _BuildMyMusicCard(
-                iconPath: 'assets/images/public/radio_station.png',
-                title: '私人FM',
+                iconPath: 'assets/images/public/wave.png',
+                title: '私藏推荐',
                 bottomText: '听点新鲜的',
               ),
             ],
@@ -54,8 +54,8 @@ class _MinePageState extends State<MinePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _BuildRecentPlay(backgroundPath: 'assets/images/public/avatar.jpg', text: '全部已播歌曲', subText: '300首'),
-              _BuildRecentPlay(backgroundPath: 'assets/images/public/avatar.jpg', text: '歌单：学习歌单||极静轻音乐', subText: '继续播放'),
+              _BuildRecentPlay(backgroundPath: 'assets/images/cover/cover3.png', text: '全部已播歌曲', subText: '300首'),
+              _BuildRecentPlay(backgroundPath: 'assets/images/cover/cover4.png', text: '歌单：学习歌单||极静轻音乐', subText: '继续播放'),
             ],
           ),
         ),
@@ -68,28 +68,28 @@ class _MinePageState extends State<MinePage> {
           childAspectRatio: 2.6,
           children: [
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover5.png',
               text: '我创建的歌单',
               subText: '139首',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover6.png',
               text: '__long的2019年度歌单',
               subText: '10首',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover7.png',
               text: '全部已播歌曲',
               subText: '300首',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover8.png',
               text: '全部已播歌曲',
               subText: '300首',
               showPlay: false,
@@ -106,28 +106,28 @@ class _MinePageState extends State<MinePage> {
           childAspectRatio: 2.6,
           children: [
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover9.png',
               text: '云音乐热歌榜',
               subText: '本周最热的歌曲',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover10.png',
               text: '云音乐新歌榜',
               subText: '本周最火的新歌',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover11.png',
               text: '【摸鱼/踩点剪辑用】适合用来当手书的BGM',
               subText: '本周热门收藏',
               showPlay: false,
               isExpanded: false,
             ),
             _BuildRecentPlay(
-              backgroundPath: 'assets/images/public/avatar.jpg',
+              backgroundPath: 'assets/images/cover/cover12.png',
               text: '国风古风中国风神曲，细腻地抚摸你的耳膜',
               subText: '本周热门收听',
               showPlay: false,
@@ -166,9 +166,9 @@ class _BuildHeader extends StatelessWidget {
       padding: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0, bottom: 20.0),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/public/avatar.jpg'),
+          image: AssetImage('assets/images/cover/cover0.png'),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(Color(0x99666666), BlendMode.modulate),
+          colorFilter: ColorFilter.mode(Color(0x99666666), BlendMode.luminosity),
         ),
       ),
       child: Column(
@@ -293,7 +293,7 @@ class _BuildMyMusicCard extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 4.0),
         padding: EdgeInsets.symmetric(horizontal: 18.0),
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: FColor.allC,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: current,
