@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_netease_cloud_music/constants/f_color.dart';
+import 'package:flutter_netease_cloud_music/page/cloud_village_page.dart';
 import 'package:flutter_netease_cloud_music/page/discovery_page.dart';
 import 'package:flutter_netease_cloud_music/page/drawer_page.dart';
 import 'package:flutter_netease_cloud_music/page/mine_page.dart';
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: <Widget>[
                 MinePage(),
                 DiscoveryPage(),
-                Text('云村'),
+                CloudVillagePage(),
                 Text('视频'),
               ],
             ),
