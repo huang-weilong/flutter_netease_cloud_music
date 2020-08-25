@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_netease_cloud_music/constants/f_color.dart';
+import 'package:flutter_netease_cloud_music/page/discovery_page.dart';
 import 'package:flutter_netease_cloud_music/page/drawer_page.dart';
 import 'package:flutter_netease_cloud_music/page/mine_page.dart';
 import 'package:flutter_netease_cloud_music/widget/sample_layout.dart';
@@ -12,14 +13,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   TabController controller;
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
-  List<Color> _tabBarColor = [Colors.transparent, Colors.grey, Colors.grey, Colors.grey];
+  List<Color> _tabBarBgColor = [Colors.transparent, Colors.white, Colors.white, Colors.white];
+  Color _tabBarIconColor = Colors.white;
 
   @override
   void initState() {
     super.initState();
     controller = TabController(length: 4, vsync: this);
     controller.addListener(() {
-      setState(() {});
+      setState(() {
+        if (controller.index == 0) {
+          _tabBarIconColor = Colors.white;
+        } else {
+          _tabBarIconColor = FColor.all9;
+        }
+      });
     });
   }
 
@@ -41,13 +49,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               controller: controller,
               children: <Widget>[
                 MinePage(),
-                Text('发现'),
+                DiscoveryPage(),
                 Text('云村'),
                 Text('视频'),
               ],
             ),
             Container(
-              color: _tabBarColor[controller.index],
+              color: _tabBarBgColor[controller.index],
               padding: EdgeInsets.all(20.0),
               child: Row(
                 children: [
@@ -55,10 +63,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     onTap: () {
                       _globalKey.currentState.openDrawer();
                     },
-                    child: Image.asset('assets/images/public/menu.png', color: Colors.white),
+                    child: Image.asset('assets/images/public/menu.png', color: _tabBarIconColor),
                   ),
                   TabBarWidget(controller),
-                  Image.asset('assets/images/public/search.png', color: Colors.white),
+                  Image.asset('assets/images/public/search.png', color: _tabBarIconColor),
                 ],
               ),
             ),
@@ -112,6 +120,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 }
 
 class TabBarWidget extends StatelessWidget {
+  final List<Color> _textSelectColor = [Colors.white, FColor.all3, FColor.all3, FColor.all3];
   final TabController controller;
   TabBarWidget(this.controller);
   @override
@@ -127,10 +136,11 @@ class TabBarWidget extends StatelessWidget {
             Text('云村'),
             Text('视频'),
           ],
+          labelColor: _textSelectColor[controller.index],
           labelPadding: const EdgeInsets.all(0.0),
           indicatorColor: Colors.transparent,
-          labelStyle: TextStyle(fontSize: 16.0),
-          unselectedLabelStyle: TextStyle(fontSize: 14.0),
+          labelStyle: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(fontSize: 16.0),
         ),
       ),
     );
