@@ -4,6 +4,7 @@ import 'package:flutter_netease_cloud_music/page/cloud_village_page.dart';
 import 'package:flutter_netease_cloud_music/page/discovery_page.dart';
 import 'package:flutter_netease_cloud_music/page/drawer_page.dart';
 import 'package:flutter_netease_cloud_music/page/mine_page.dart';
+import 'package:flutter_netease_cloud_music/page/video_page.dart';
 import 'package:flutter_netease_cloud_music/widget/sample_layout.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 MinePage(),
                 DiscoveryPage(),
                 CloudVillagePage(),
-                Text('视频'),
+                VideoPage(),
               ],
             ),
             Container(
