@@ -255,7 +255,7 @@ class __CarouselImageState extends State<_CarouselImage> {
       dotUnSelectColor: FColor.allE,
       children: widget.images.map((dir) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+          margin: EdgeInsets.fromLTRB(12.0, 8.0, 12.0, 0.0),
           decoration: BoxDecoration(
             color: Colors.orange,
             image: DecorationImage(image: AssetImage(dir), fit: BoxFit.cover),
