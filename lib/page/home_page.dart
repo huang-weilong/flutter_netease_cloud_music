@@ -4,6 +4,7 @@ import 'package:flutter_netease_cloud_music/page/cloud_village_page.dart';
 import 'package:flutter_netease_cloud_music/page/discovery_page.dart';
 import 'package:flutter_netease_cloud_music/page/drawer_page.dart';
 import 'package:flutter_netease_cloud_music/page/mine_page.dart';
+import 'package:flutter_netease_cloud_music/page/play_page.dart';
 import 'package:flutter_netease_cloud_music/page/video_page.dart';
 import 'package:flutter_netease_cloud_music/widget/sample_layout.dart';
 
@@ -76,41 +77,46 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               bottom: 0.0,
               left: 0.0,
               right: 0.0,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border(top: BorderSide(color: FColor.allE, width: 0.5)),
-                ),
-                child: Row(
-                  children: [
-                    ClipOval(
-                      child: Image.asset('assets/images/public/avatar.jpg', width: 40.0),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text('好像爱这个世界啊(Live)'),
-                            Text('横划可以切换上下首哦', style: TextStyle(color: FColor.all9, fontSize: 12.0)),
-                          ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => PlayPage()));
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(top: BorderSide(color: FColor.allE, width: 0.5)),
+                  ),
+                  child: Row(
+                    children: [
+                      ClipOval(
+                        child: Image.asset('assets/images/public/avatar.jpg', width: 40.0),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('好像爱这个世界啊(Live)'),
+                              Text('横划可以切换上下首哦', style: TextStyle(color: FColor.all9, fontSize: 12.0)),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 14.0),
-                      padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 9.0, right: 7.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(50.0),
+                      Container(
+                        margin: EdgeInsets.only(right: 14.0),
+                        padding: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 9.0, right: 7.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                        child: Image.asset('assets/images/public/play1.png', color: Colors.grey, width: 10.0),
                       ),
-                      child: Image.asset('assets/images/public/play1.png', color: Colors.grey, width: 10.0),
-                    ),
-                    Image.asset('assets/images/public/menu.png'),
-                  ],
+                      Image.asset('assets/images/public/menu.png'),
+                    ],
+                  ),
                 ),
               ),
             )

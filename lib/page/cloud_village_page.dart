@@ -135,88 +135,83 @@ class _CloudVillagePageState extends State<CloudVillagePage> {
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 6.0, bottom: 54.0),
-                child: TabBarView(
-                  children: <Widget>[
-                    SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+              child: TabBarView(
+                children: <Widget>[
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(6.0, 6.0, 6.0, 54.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                                children: square1
+                                    .map((e) => _GCard(
+                                        coverImg: e['coverImg'],
+                                        title: e['title'],
+                                        name: e['name'],
+                                        like: e['like'],
+                                        avatarImg: e['avatarImg']))
+                                    .toList()),
+                          ),
+                          Expanded(
+                            child: Column(
+                                children: square2
+                                    .map((e) => _GCard(
+                                        coverImg: e['coverImg'],
+                                        title: e['title'],
+                                        name: e['name'],
+                                        like: e['like'],
+                                        avatarImg: e['avatarImg']))
+                                    .toList()),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ListView(
+                    padding: const EdgeInsets.only(top: 6.0, bottom: 54.0),
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 6.0, bottom: 6.0),
+                        decoration: BoxDecoration(border: Border(bottom: BorderSide(color: FColor.allD, width: 0.5))),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Column(
-                                  children: square1
-                                      .map((e) => _GCard(
-                                            coverImg: e['coverImg'],
-                                            title: e['title'],
-                                            name: e['name'],
-                                            like: e['like'],
-                                            avatarImg: e['avatarImg'],
-                                          ))
-                                      .toList()),
-                            ),
-                            Expanded(
-                              child: Column(
-                                  children: square2
-                                      .map((e) => _GCard(
-                                            coverImg: e['coverImg'],
-                                            title: e['title'],
-                                            name: e['name'],
-                                            like: e['like'],
-                                            avatarImg: e['avatarImg'],
-                                          ))
-                                      .toList()),
-                            ),
+                            _buildAttention('assets/images/cover/cover1.png', '我的云圈'),
+                            _buildAttention('assets/images/cover/cover2.png', 'HugeTerry'),
+                            _buildAttention('assets/images/cover/cover3.png', 'Mr-Joke'),
                           ],
                         ),
                       ),
-                    ),
-                    ListView(
-                      padding: const EdgeInsets.only(top: 6.0, bottom: 54.0),
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 6.0, bottom: 6.0),
-                          decoration: BoxDecoration(border: Border(bottom: BorderSide(color: FColor.allD, width: 0.5))),
-                          child: Row(
-                            children: [
-                              _buildAttention('assets/images/cover/cover1.png', '我的云圈'),
-                              _buildAttention('assets/images/cover/cover2.png', 'HugeTerry'),
-                              _buildAttention('assets/images/cover/cover3.png', 'Mr-Joke'),
-                            ],
-                          ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('你可能感兴趣的人', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50.0),
+                                border: Border.all(color: FColor.allE),
+                              ),
+                              child: Text('查看更多', style: TextStyle(fontSize: 13.0)),
+                            )
+                          ],
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('你可能感兴趣的人', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
-                              Container(
-                                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50.0),
-                                  border: Border.all(color: FColor.allE),
-                                ),
-                                child: Text('查看更多', style: TextStyle(fontSize: 13.0)),
-                              )
-                            ],
-                          ),
+                      ),
+                      ...recommendList.map(
+                        (e) => _TCard(
+                          avatarPath: e['avatarPath'],
+                          name: e['name'],
+                          fans: e['fans'],
+                          dynamic: e['dynamic'],
+                          mark: e['mark'],
                         ),
-                        ...recommendList.map(
-                          (e) => _TCard(
-                            avatarPath: e['avatarPath'],
-                            name: e['name'],
-                            fans: e['fans'],
-                            dynamic: e['dynamic'],
-                            mark: e['mark'],
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                      )
+                    ],
+                  )
+                ],
               ),
             ),
           ],
